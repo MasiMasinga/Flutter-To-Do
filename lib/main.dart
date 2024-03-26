@@ -5,7 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 
 // Get It
 import 'package:get_it/get_it.dart';
-import 'package:to_do/blocs/auth_cubit.dart';
+
+// Repositories
 import 'package:to_do/repositories/authentication_repository.dart';
 import 'package:to_do/repositories/todo_repository.dart';
 
@@ -16,7 +17,9 @@ import 'package:to_do/routes/routes.dart';
 import 'package:to_do/screens/splash/splash.dart';
 import 'package:to_do/services/firebase_auth_service.dart';
 
+// Blocs
 import 'blocs/todo_cubit.dart';
+import 'package:to_do/blocs/auth_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,9 +31,9 @@ void main() async {
 void setupLocator() {
   GetIt.I
       .registerLazySingleton<FirebaseAuthService>(() => FirebaseAuthService());
-  GetIt.I.registerLazySingleton<TodoRepository>(() => TodoRepository());
   GetIt.I.registerLazySingleton<AuthenticationRepository>(
-      () => AuthenticationRepository());
+      () => AuthenticationRepository(GetIt.I<FirebaseAuthService>()));
+  GetIt.I.registerLazySingleton<TodoRepository>(() => TodoRepository());
   GetIt.I.registerFactory<AuthCubit>(
       () => AuthCubit(GetIt.I<FirebaseAuthService>()));
   GetIt.I
