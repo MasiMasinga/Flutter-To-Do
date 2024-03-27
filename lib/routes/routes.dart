@@ -18,7 +18,7 @@ class AppRoutes {
       case '/login':
         return MaterialPageRoute(builder: (_) => const Login());
       case '/register':
-        return MaterialPageRoute(builder: (_) => const Register());
+        return MaterialPageRoute(builder: (_) => Register());
       case '/forgot-password':
         return MaterialPageRoute(builder: (_) => const ForgotPassword());
       case '/home':

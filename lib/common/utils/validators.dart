@@ -11,36 +11,6 @@ class Validators {
     return null;
   }
 
-  static String? validateDepartmentName(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Department name is required';
-    }
-    if (value.length < 3) {
-      return 'Department name must be at least 3 characters';
-    }
-    return null;
-  }
-
-  static String? validateRole(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Role is required';
-    }
-    if (value.length < 3) {
-      return 'Role must be at least 3 characters';
-    }
-    return null;
-  }
-
-  static String? validateSalary(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Salary is required';
-    }
-    if (value.length < 3) {
-      return 'Salary must be at least 3 characters';
-    }
-    return null;
-  }
-
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return ValidationMessages.invalidEmail;
