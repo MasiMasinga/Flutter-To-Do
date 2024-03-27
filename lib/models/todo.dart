@@ -10,4 +10,12 @@ class Todo {
     required this.description,
     required this.isCompleted,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'description': description,
+      'isCompleted': isCompleted,
+    };
+  }
 }
